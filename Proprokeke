@@ -1,0 +1,46 @@
+serial a 9600 bps.
+
+[source,arduino]
+----
+void setup() {
+    Serial.begin(9600); // inicia a porta serial, configura a taxa de dados para 9600 bps
+}
+
+void loop() {
+}
+----
+[%hardbreaks]
+
+*Exemplo para o Arduino Mega:*
+O código abaixo inicia todas as portas seriais no Arduino Mega com diferentes taxas de trasnmissão.
+[source,arduino]
+----
+// Exemplo por Jeff Gray (originalmente em Inglês)
+// Arduino Mega usando todas suas quatro portas seriais
+// (Serial, Serial1, Serial2, Serial3),
+// com baud rates diferentes:
+
+void setup() {
+  Serial.begin(9600);
+  Serial1.begin(38400);
+  Serial2.begin(19200);
+  Serial3.begin(4800);
+
+  Serial.println("Hello Computer");
+  Serial1.println("Hello Serial 1");
+  Serial2.println("Hello Serial 2");
+  Serial3.println("Hello Serial 3");
+}
+void loop() {
+}
+----
+[%hardbreaks]
+
+
+[float]
+=== Notas e Advertências
+Para portas seriais USB CDC (ex. `Serial` no Leonardo), `Serial.begin()` é irrelevante. Você pode usar qulquer taxa de transmissão e configuração para comunicação serial com essas portas específicas. Veja a lista de portas seriais disponíveis para cada plana na link:../../serial[página principal da classe Serial].
+[%hardbreaks]
+
+--
+// HOW TO USE SECTION ENDS
